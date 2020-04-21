@@ -9,6 +9,7 @@ Comments https://jsonplaceholder.typicode.com/comments/1
 The framework uses RestSharp library for testing. 
 
 Report of findings :
+There were 38 testcases of which 5 negative testcases for comment have failed result. 
 
 The api endpoint is not working correctly for comment end points when the invalid id's are sent. 
 The response status code is 200 OK with empty response body.
