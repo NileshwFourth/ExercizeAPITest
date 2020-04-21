@@ -37,13 +37,6 @@ namespace ExercizeAPITest.Util
         {
             IRestResponse response = client.Execute<List<Comment>>(request);
             return response;
-        }
-
-        public static List<Comment> Deserialize(IRestResponse response)
-        {
-            RestSharp.Deserializers.JsonDeserializer deserial = new RestSharp.Deserializers.JsonDeserializer();
-            var commentObject = deserial.Deserialize<List<Comment>>(response);
-            return commentObject;
-        }
+        }        
     }
 }

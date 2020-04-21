@@ -23,7 +23,7 @@ namespace ExercizeAPITest.Tests
             // act            
             var response = RestOperations.ExecuteCommentRequest(client, request);
 
-            var commentObject = RestOperations.Deserialize(response);
+            var commentObject = DesrializationOperation.CommentDeserialize(response);
                                     
             // assert
             foreach (Comment obj in commentObject)

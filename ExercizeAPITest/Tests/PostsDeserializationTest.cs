@@ -22,7 +22,7 @@ namespace ExercizeAPITest.Tests
             // act
             IRestResponse response = RestOperations.ExecuteRequest(client, request);
 
-            PostsResponse postResponse = DesrializationOperation.Deserialize(response);
+            PostsResponse postResponse = DesrializationOperation.PostDeserialize(response);
             
             // assert
             Assert.That(postResponse.ID, Is.EqualTo(firstId));
