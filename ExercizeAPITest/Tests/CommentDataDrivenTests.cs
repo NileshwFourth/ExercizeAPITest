@@ -31,7 +31,7 @@ namespace ExercizeAPITest.Tests
             
             RestClient client = RestOperations.ReturnRestClient(baseURL);
 
-            string commentEndPoint = postsEndPoint + id + commentsEndPoint;
+            string commentEndPoint = postsEndPoint + id + commentsPostsEndPoint;
 
             RestRequest request = RestOperations.ReturnCommentRequest(commentEndPoint);
 

@@ -10,7 +10,7 @@ namespace ExercizeAPITest.Tests
     public class BasicTests : BaseClass
     {
         [Test]
-        public void PostStatusCodeTest() 
+        public void PostStatusCodeTestMultipleIds() 
         {
             
             for (int idCheck = 1; idCheck <= 100; idCheck=idCheck+10)
@@ -30,7 +30,7 @@ namespace ExercizeAPITest.Tests
         }
 
         [Test]
-        public void PostContentTypeTest()
+        public void PostContentTypeTestFirstId()
         {            
                 // arrange
                 RestClient client = RestOperations.ReturnRestClient(baseURL);
@@ -47,7 +47,24 @@ namespace ExercizeAPITest.Tests
         }
 
         [Test]
-        public void CommentStatusCodeTest()
+        public void PostContentTypeTestLastId()
+        {
+            // arrange
+            RestClient client = RestOperations.ReturnRestClient(baseURL);
+
+            RestRequest request = RestOperations.ReturnPostRequest(postsEndPoint, lastId);
+
+
+            // act                
+            IRestResponse response = RestOperations.ExecuteRequest(client, request);
+
+            // assert
+            Assert.That(response.ContentType, Is.EqualTo(contentType));
+
+        }
+
+        [Test]
+        public void CommentStatusCodeTestMultipleIds()
         {
 
             for (int idCheck = 1; idCheck <= 100; idCheck = idCheck + 10)
@@ -55,7 +72,7 @@ namespace ExercizeAPITest.Tests
                 // arrange
                 RestClient client = RestOperations.ReturnRestClient(baseURL);
 
-                string commentEndPoint = postsEndPoint + idCheck + commentsEndPoint;
+                string commentEndPoint = postsEndPoint + idCheck + commentsPostsEndPoint;
 
                 RestRequest request = RestOperations.ReturnCommentRequest(commentEndPoint);
 
@@ -69,12 +86,12 @@ namespace ExercizeAPITest.Tests
         }
 
         [Test]
-        public void CommentContentTypeTest()
+        public void CommentContentTypeTestFirstId()
         {
             // arrange
             RestClient client = RestOperations.ReturnRestClient(baseURL);
 
-            string commentEndPoint = postsEndPoint + firstId + commentsEndPoint;
+            string commentEndPoint = postsEndPoint + firstId + commentsPostsEndPoint;
 
             RestRequest request = RestOperations.ReturnCommentRequest(commentEndPoint);
 
@@ -84,5 +101,23 @@ namespace ExercizeAPITest.Tests
             // assert
             Assert.That(response.ContentType, Is.EqualTo(contentType));
         }
+
+        [Test]
+        public void CommentContentTypeTestLastId()
+        {
+            // arrange
+            RestClient client = RestOperations.ReturnRestClient(baseURL);
+
+            string commentEndPoint = postsEndPoint + lastId + commentsPostsEndPoint;
+
+            RestRequest request = RestOperations.ReturnCommentRequest(commentEndPoint);
+
+            // act
+            IRestResponse response = RestOperations.ExecuteRequest(client, request);
+
+            // assert
+            Assert.That(response.ContentType, Is.EqualTo(contentType));
+        }
+
     }
 }
