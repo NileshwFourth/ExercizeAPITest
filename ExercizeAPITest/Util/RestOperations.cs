@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using ExercizeAPITest.DataEntities;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,5 +32,20 @@ namespace ExercizeAPITest.Util
             RestRequest request = new RestRequest(endpoint, Method.GET);
             return request;
         }
+
+        public static IRestResponse ExecuteCommentRequest(RestClient client, RestRequest request)
+        {
+            IRestResponse response = client.Execute<List<Comment>>(request);
+            return response;
+        }
+
+        public static List<Comment> Deserialize(IRestResponse response)
+        {
+            RestSharp.Deserializers.JsonDeserializer deserial = new RestSharp.Deserializers.JsonDeserializer();
+            var commentObject = deserial.Deserialize<List<Comment>>(response);
+            return commentObject;
+        }
+
+
     }
 }
