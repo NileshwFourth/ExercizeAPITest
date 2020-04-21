@@ -45,7 +45,5 @@ namespace ExercizeAPITest.Util
             var commentObject = deserial.Deserialize<List<Comment>>(response);
             return commentObject;
         }
-
-
     }
 }
