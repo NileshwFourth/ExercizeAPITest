@@ -65,8 +65,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\BasicTests.cs" />
     <Compile Include="Tests\CommentDataDrivenTests.cs" />
-    <Compile Include="Tests\DeserializationTests.cs" />
+    <Compile Include="Tests\CommentDeserializationTests.cs" />
     <Compile Include="Tests\IdDataDrivenTests.cs" />
+    <Compile Include="Tests\PostsDeserializationTest.cs" />
     <Compile Include="Util\DesrializationOperation.cs" />
     <Compile Include="Util\RestOperations.cs" />
   </ItemGroup>
