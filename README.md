@@ -18,3 +18,4 @@ Taking this into consideration it is major defect
 Testing can't be signed off unless this defect is resolved.
 
 TESTING RESULT : FAIL
+# ExercizAPITest

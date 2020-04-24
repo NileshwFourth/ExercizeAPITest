@@ -7,6 +7,7 @@ using System.Collections.Generic;
 
 namespace ExercizeAPITest.Tests
 {
+
     [TestFixture]
     public class PostsDeserializationTest : BaseClass
     {
@@ -27,6 +28,5 @@ namespace ExercizeAPITest.Tests
             // assert
             Assert.That(postResponse.ID, Is.EqualTo(firstId));
         }
-
     }
 }
